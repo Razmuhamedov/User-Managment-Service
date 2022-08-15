@@ -33,6 +33,7 @@ public class ApplicationController {
     public ResponseEntity<?> updateApp(@RequestBody Application app,
                                         @PathVariable("id") Integer id){
         Boolean result = applicationService.updateApp(app,id);
+        System.out.print("qwert");
         return ResponseEntity.ok(result);
     }
 
