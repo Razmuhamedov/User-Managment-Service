@@ -105,6 +105,17 @@ public class UserService {
         return String.format("Quantity experience per month: %d", month);
     }
 
+
+    public List<Job> getJobByDate(Integer id, String date) {
+        getUser(id);
+        List<Application> applications = appRepository.findByUser_id(id);
+        List<Job> jobList = new LinkedList<>();
+        for(Application app:applications) {
+           jobList.add(app.getJob());
+        }
+        return jobList;
+    }
+
     private List<Application> getAppByUser(Integer id){
         getUser(id);
         List<Application> applications = appRepository.findByUser_id(id);
@@ -113,12 +124,4 @@ public class UserService {
         }
         return applications;
     }
-
-
-//    public Double getJobByDate(Integer id, String date) {
-//        getUser(id);
-//        List<Application> applications = appRepository.findByUser_id(id);
-//        List<Job> jobList = new LinkedList<>();
-//
-//    }
 }

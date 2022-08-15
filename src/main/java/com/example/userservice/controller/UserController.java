@@ -72,10 +72,10 @@ public class UserController {
         return ResponseEntity.ok(result);
     }
 
-//    @GetMapping("/getJob/{id}/{date}")
-//    public ResponseEntity<?> getJobByDate(@PathVariable("id") Integer id,
-//                                             @PathVariable("date") String date){
-//        Double result = userServiceq.getJobByDate(id,date);
-//        return ResponseEntity.ok(result);
-//    }
+    @GetMapping("/getJob/{id}/{date}")
+    public ResponseEntity<?> getJobByDate(@PathVariable("id") Integer id,
+                                             @PathVariable("date") String date){
+        List<Job> result = userService.getJobByDate(id,date);
+        return ResponseEntity.ok(result);
+    }
 }
